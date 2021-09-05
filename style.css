@@ -1,0 +1,107 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family: 'Patrick Hand', cursive;
+}
+
+.container {
+    padding: 1rem;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: normal;
+
+    margin-bottom: 1.25rem;
+    text-align: center;
+    border: 2px solid black;
+}
+
+p {
+    font-size: 2.3rem;
+    text-align: center;
+    line-height: 1.8;
+
+    padding: 0.313rem;
+    margin: 2.5rem 0;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border: none;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 2.8rem;
+    margin-top: 1.875rem;
+
+}
+
+label {
+    font-size: 1.5rem;
+
+    margin-top: 1.25rem;
+}
+
+input {
+    padding: 7px;
+}
+
+select {
+    padding: 5px;
+}
+
+span {
+    color: red;
+}
+
+.display {
+    display: none;
+}
+
+button {
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: -6px 6px 1px rgba(0, 0, 0, 0.781);
+    font-size: 1.8rem;
+    padding: 0.125rem 1.25rem;
+    cursor: pointer;
+
+    margin: 35px auto;
+    transition: .3s all;
+}
+
+button:hover {
+    background-color: black;
+    box-shadow: -6px 6px 1px rgba(0, 0, 0, 0.856);
+    border: 1px solid rgba(255, 255, 255, 0.815);
+    color: white;
+}
+
+.div-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-sim {
+    margin: 0; 
+}
+
+@media (min-width: 650px) {
+    .container {
+        padding: 5rem;
+    }
+}
+
+@media (min-width: 1150px) {
+    .container {
+        padding: 6rem 20rem;
+    }
+}
+
