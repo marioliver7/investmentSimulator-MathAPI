@@ -8,26 +8,27 @@ async function simular(e) {
     let tempo = document.querySelector('.tempo').value;
     let errorMessage = document.querySelector('span');
 
-    const taxaJuros = 0.517;
-    
-    const options = {
-        method: 'GET',
-        mode: 'cors',
-        cache: 'default'
-    }
-
     if (!mensalidade || !nome) {
         return errorMessage.classList.remove('display');
     }
 
-    try {
-        const response = await fetch(`http://api.mathjs.org/v4/?expr=(${tempo}*12)*${mensalidade}`, options);
-        // const response = await fetch(`http://api.mathjs.org/v4/?expr=${mensalidade}*(((1+0.00517)^${tempo*12}-1)/0.00517)`, options);
-        const total = await response.json();
-    
-        window.location.href = `/result/result.html?nome=${nome}&mensalidade=${mensalidade}&total=${total}&tempo=${tempo}`;
-    } catch (e) {
-        console.log('Deu erro: ' + e.message)
-    }
+    const response = await fetch(`http://api.mathjs.org/v4/`, {
+        method: "POST",
+        headers: {
+            "content-Type": "application/json",
+        },
+        body: JSON.stringify({ 
+            expr: `${mensalidade}*(((1+0.00517)^${tempo*12}-1)/0.00517)`,
+            precision: 2
+        }),
+    })
+
+        .then((response) => response.json())
+        .then(({result}) => {
+            window.location.href = `/result/result.html?nome=${nome}&mensalidade=${mensalidade}&total=${result}&tempo=${tempo}`;
+        })
+        .catch((error) => {
+            console.error("Error", error);
+        })
 
 }
